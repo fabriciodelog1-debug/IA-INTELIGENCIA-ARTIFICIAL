@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --ac: #00d4ff;
+  --ac2: #0099ff;
+  --glow: rgba(0, 212, 255, 0.2);
+  --glow-strong: rgba(0, 212, 255, 0.4);
+}
+
+body.friday-theme {
+  --ac: #ff2d55;
+  --ac2: #ff6a8a;
+  --glow: rgba(255, 45, 85, 0.2);
+  --glow-strong: rgba(255, 45, 85, 0.4);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: radial-gradient(ellipse at 50% 30%, #0d1222 0%, #020408 80%), #000;
+  color: #f1f5f9;
+  min-height: 100vh;
+  transition: background 0.8s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ac);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ac2);
+}
+
+/* Glowing text and boxes */
+.glow-title {
+  color: var(--ac);
+  text-shadow: 0 0 15px var(--ac), 0 0 30px var(--ac2);
+}
+
+.glow-border {
+  border-color: var(--ac);
+  box-shadow: 0 0 15px var(--glow);
+}
+
+.glow-btn-active {
+  border-color: var(--ac);
+  color: var(--ac);
+  box-shadow: 0 0 12px var(--glow-strong);
+}
+
+/* Pulsing and blinking animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.9); }
+}
+
+.dot-live-anim {
+  animation: blink 1.6s infinite ease-in-out;
+}
+
+@keyframes listenPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.listening-ring-anim {
+  animation: listenPulse 1.4s ease-out infinite;
+}
+
+/* Chat bubble styling */
+.chat-log-container {
+  scrollbar-width: thin;
+}
+
+/* Custom utilities */
+.neon-glass {
+  background: rgba(6, 11, 25, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.theme-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

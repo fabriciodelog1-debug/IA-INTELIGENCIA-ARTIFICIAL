@@ -1,0 +1,6 @@
+{
+  "name": "Stark AI Assistant",
+  "description": "J.A.R.V.I.S. and SEXTA-FEIRA advanced virtual assistants with smart home controls, computer vision, and cognitive neural visuals.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
